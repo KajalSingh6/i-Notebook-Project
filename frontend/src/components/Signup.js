@@ -10,11 +10,12 @@ import { IoIosEye } from "react-icons/io";
 const Signup = (props) => {
   const [credentials, setCredentials] = useState({ name: '', email: '', password: '', cpassword: '' });
   let navigate = useNavigate();
+  const host = "https://i-notebook-project-backend.onrender.com"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch("http://127.0.0.1:5000/api/auth/createuser", {
+    const response = await fetch(`${host}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
